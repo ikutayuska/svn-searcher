@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.py[cod]
+
+# Local environment
+.venv/
+.env
+*.local
+
+# Runtime artifacts
+logs/
+Exported_Files/
+SVN_List/
+
+# Private configuration
+repositories.json
+
+# macOS
+.DS_Store
+
+# macOS
+.DS_Store

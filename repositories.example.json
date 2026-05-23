@@ -1,0 +1,12 @@
+{
+  "trunk": {
+    "url": "https://svn.example.com/project/trunk",
+    "cache": "SVN_List/svn_list_trunk.csv",
+    "rev": "SVN_List/trunk_rev.txt"
+  },
+  "branches": {
+    "url": "https://svn.example.com/project/branches",
+    "cache": "SVN_List/svn_list_branches.csv",
+    "rev": "SVN_List/branches_rev.txt"
+  }
+}
