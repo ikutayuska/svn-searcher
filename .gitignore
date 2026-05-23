@@ -8,15 +8,10 @@ __pycache__/
 *.local
 
 # Runtime artifacts
-logs/
-Exported_Files/
-SVN_List/
+runtime/
 
 # Private configuration
-repositories.json
-
-# macOS
-.DS_Store
+config/repositories.json
 
 # macOS
 .DS_Store

@@ -9,11 +9,13 @@ from tkinter import ttk, messagebox
 from typing import Dict, List, Tuple
 from urllib.parse import unquote
 
-from update_cached_list import SVNCacheUpdater
+from svn_searcher.cache_updater import SVNCacheUpdater
 
 
-LOG_FOLDER = Path("logs")
-LOG_FOLDER.mkdir(exist_ok=True)
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
+RUNTIME_DIR = PROJECT_ROOT / "runtime"
+LOG_FOLDER = RUNTIME_DIR / "logs"
+LOG_FOLDER.mkdir(parents=True, exist_ok=True)
 
 logging.basicConfig(
     level=logging.INFO,
@@ -28,8 +30,8 @@ logger = logging.getLogger(__name__)
 
 
 class SVNFileSearcherGUI:
-    OUTPUT_FOLDER = Path("Exported_Files")
-    CONFIG_FILE = Path("repositories.json")
+    OUTPUT_FOLDER = RUNTIME_DIR / "Exported_Files"
+    CONFIG_FILE = PROJECT_ROOT / "config" / "repositories.json"
 
     def __init__(self, root: tk.Tk):
         self.root = root
@@ -133,7 +135,7 @@ class SVNFileSearcherGUI:
         if not self.CONFIG_FILE.exists():
             raise FileNotFoundError(
                 f"{self.CONFIG_FILE} が見つかりません。"
-                " repositories.example.json をコピーして作成してください。"
+                " config/repositories.example.json をコピーして作成してください。"
             )
 
         with self.CONFIG_FILE.open("r", encoding="utf-8") as f:
